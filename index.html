@@ -2324,7 +2324,8 @@
       function setupWhatsApp() {
         const openWhatsApp = (message = null) => {
           const msg = message || SCHOOL_DATA.basic.whatsappMessage;
-          const url = `https://wa.me/15556418034?text=${encodeURIComponent(msg)}`;
+          // const url = `https://wa.me/15556418034?text=${encodeURIComponent(msg)}`;
+          const url = "https://api.whatsapp.com/send?phone=15556418034&text=Hi%20I%20want%20admission%20details%20from%20website"
           window.open(url, "_blank");
         };
 
