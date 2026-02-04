@@ -1181,6 +1181,7 @@
           tagline: "Nurturing Tomorrow's Leaders Since 1996",
           established: "1996",
           phone: "0671-2441606",
+          wpNumber: "‎15556418034",
           email: "stantonysor078@yahoo.in",
           address: "Bidyadharpur Naya Bazar, Cuttack, Odisha - 753004",
           whatsappMessage: "Hi! I'm interested in admissions.",
@@ -2323,7 +2324,7 @@
       function setupWhatsApp() {
         const openWhatsApp = (message = null) => {
           const msg = message || SCHOOL_DATA.basic.whatsappMessage;
-          const url = `https://wa.me/91${SCHOOL_DATA.basic.phone}?text=${encodeURIComponent(msg)}`;
+          const url = `https://wa.me/91${SCHOOL_DATA.basic.wpNumber}?text=${encodeURIComponent(msg)}`;
           window.open(url, "_blank");
         };
 
