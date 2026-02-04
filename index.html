@@ -1,0 +1,2400 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="pageTitle">
+      Excellence Academy - Nurturing Tomorrow's Leaders
+    </title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Albert+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ═══════════════════════════════════════════════════════════
+   🎨 DESIGN SYSTEM & THEME
+   ═══════════════════════════════════════════════════════════ */
+      :root {
+        /* Brand Colors - Customize per school */
+        --primary: #2d5a3e;
+        --primary-dark: #1f4029;
+        --primary-light: #3d7051;
+        --accent: #d4a574;
+        --accent-dark: #b8895e;
+
+        /* Neutrals */
+        --bg: #fafaf8;
+        --surface: #ffffff;
+        --text: #1a1916;
+        --text-muted: #5f5952;
+        --text-light: #8a8378;
+        --border: #e5e2dd;
+
+        /* Semantic */
+        --success: #4caf50;
+        --warning: #ff9800;
+        --error: #f44336;
+
+        /* Effects */
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+        --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Albert Sans", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.7;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+
+      /* Typography */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Crimson Pro", serif;
+        font-weight: 700;
+        line-height: 1.3;
+        color: var(--text);
+      }
+
+      /* ═══════════════════════════════════════════════════════════
+   🎯 NAVIGATION
+   ═══════════════════════════════════════════════════════════ */
+      .header {
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.98);
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1rem 0;
+        gap: 2rem;
+      }
+
+      .nav-brand {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+      }
+
+      .school-name {
+        font-family: "Crimson Pro", serif;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: var(--primary);
+        line-height: 1.1;
+      }
+
+      .school-tagline {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        font-weight: 500;
+        letter-spacing: 0.5px;
+      }
+
+      .nav-menu {
+        display: none;
+        list-style: none;
+        gap: 0.25rem;
+      }
+
+      .nav-menu li a {
+        display: block;
+        padding: 0.6rem 1rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        border-radius: 8px;
+        transition: var(--transition);
+      }
+
+      .nav-menu li a:hover,
+      .nav-menu li a.active {
+        background: var(--primary);
+        color: white;
+      }
+
+      .nav-cta {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+
+      .hamburger span {
+        width: 24px;
+        height: 2px;
+        background: var(--text);
+        transition: var(--transition);
+      }
+
+      .mobile-menu {
+        display: none;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 0;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      .mobile-menu-list {
+        list-style: none;
+      }
+
+      .mobile-menu-list li a {
+        display: block;
+        padding: 0.75rem 1.5rem;
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 600;
+        border-left: 3px solid transparent;
+        transition: var(--transition);
+      }
+
+      .mobile-menu-list li a:hover,
+      .mobile-menu-list li a.active {
+        background: var(--bg);
+        border-left-color: var(--primary);
+        color: var(--primary);
+      }
+
+      @media (min-width: 768px) {
+        .nav-menu {
+          display: flex;
+        }
+        .nav-cta {
+          display: block;
+        }
+        .hamburger {
+          display: none;
+        }
+        .school-name {
+          font-size: 1.6rem;
+        }
+        .school-tagline {
+          font-size: 0.8rem;
+        }
+      }
+
+      /* ═══════════════════════════════════════════════════════════
+   📱 WHATSAPP FLOATING BUTTON
+   ═══════════════════════════════════════════════════════════ */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 999;
+      }
+
+      .whatsapp-btn {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #25d366 0%, #1ebe57 100%);
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        animation: pulse-wa 2s infinite;
+      }
+
+      .whatsapp-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6);
+      }
+
+      .whatsapp-btn svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      @keyframes pulse-wa {
+        0%,
+        100% {
+          box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+        }
+        50% {
+          box-shadow: 0 4px 24px rgba(37, 211, 102, 0.7);
+        }
+      }
+
+      /* ═══════════════════════════════════════════════════════════
+   🏠 PAGE SECTIONS
+   ═══════════════════════════════════════════════════════════ */
+      .page {
+        display: none;
+        animation: fadeIn 0.5s ease-in-out;
+      }
+
+      .page.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .section {
+        padding: 4rem 0;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4vw, 3rem);
+        margin-bottom: 0.75rem;
+        color: var(--primary);
+      }
+
+      .section-subtitle {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* ═══════════════════════════════════════════════════════════
+   🎨 HOME PAGE
+   ═══════════════════════════════════════════════════════════ */
+      .hero {
+        background: linear-gradient(135deg, #f8f6f3 0%, #fdfbf7 100%);
+        padding: 5rem 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        right: -10%;
+        width: 600px;
+        height: 600px;
+        background: radial-gradient(
+          circle,
+          rgba(45, 90, 62, 0.06) 0%,
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: white;
+        padding: 0.5rem 1.25rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 1.5rem;
+        box-shadow: var(--shadow-sm);
+        letter-spacing: 0.5px;
+      }
+
+      .hero-badge-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--accent);
+        border-radius: 50%;
+        animation: pulse-wa 2s infinite;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        margin-bottom: 1.5rem;
+        line-height: 1.1;
+      }
+
+      .hero h1 .highlight {
+        color: var(--primary);
+      }
+
+      .hero-description {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        margin-bottom: 2.5rem;
+        line-height: 1.7;
+      }
+
+      .cta-group {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        font-weight: 700;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        transition: var(--transition);
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+        box-shadow: var(--shadow-md);
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .btn-secondary {
+        background: white;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+      }
+
+      .btn-secondary:hover {
+        background: var(--primary);
+        color: white;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+        margin-top: 4rem;
+        padding-top: 3rem;
+        border-top: 1px solid var(--border);
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-family: "Crimson Pro", serif;
+        font-size: 3rem;
+        font-weight: 700;
+        color: var(--primary);
+        line-height: 1;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        margin-top: 0.5rem;
+      }
+
+      /* Features */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        transition: var(--transition);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .feature-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .feature-description {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+      }
+
+      /* ═══════════════════════════════════════════════════════════
+   📖 ABOUT PAGE
+   ═══════════════════════════════════════════════════════════ */
+      .message-card {
+        background: white;
+        padding: 3rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: start;
+      }
+
+      .message-photo {
+        width: 180px;
+        height: 180px;
+        border-radius: 12px;
+        background: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 4rem;
+        font-weight: 700;
+        box-shadow: var(--shadow-md);
+        margin: 0 auto;
+      }
+
+      .message-content h3 {
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        font-size: 1.8rem;
+      }
+
+      .message-content h4 {
+        color: var(--text-muted);
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+      }
+
+      .message-content p {
+        margin-bottom: 1rem;
+        line-height: 1.8;
+      }
+
+      .signature {
+        margin-top: 2rem;
+        font-style: italic;
+        color: var(--text-muted);
+      }
+
+      @media (min-width: 768px) {
+        .message-card {
+          grid-template-columns: 200px 1fr;
+        }
+        .message-photo {
+          margin: 0;
+        }
+      }
+
+      .vm-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .vm-card {
+        background: white;
+        padding: 2.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+      }
+
+      .vm-card h3 {
+        color: var(--primary);
+        margin-bottom: 1rem;
+        font-size: 1.8rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .vm-card ul {
+        list-style: none;
+        margin-top: 1rem;
+      }
+
+      .vm-card li {
+        padding: 0.5rem 0;
+        padding-left: 1.5rem;
+        position: relative;
+        line-height: 1.7;
+      }
+
+      .vm-card li::before {
+        content: "→";
+        position: absolute;
+        left: 0;
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      /* Timeline */
+      .timeline {
+        max-width: 800px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--border);
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-left: 60px;
+        padding-bottom: 2rem;
+      }
+
+      .timeline-marker {
+        position: absolute;
+        left: 0;
+        width: 40px;
+        height: 40px;
+        background: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: 700;
+        z-index: 2;
+      }
+
+      .timeline-content {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+      }
+
+      .timeline-year {
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      /* ═══════════════════════════════════════════════════════════
+   🎓 ACADEMICS PAGE
+   ═══════════════════════════════════════════════════════════ */
+      .curriculum-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .curriculum-card {
+        background: var(--primary);
+        color: white;
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+        transition: var(--transition);
+      }
+
+      .curriculum-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .curriculum-card h3 {
+        color: white;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+      }
+
+      .faculty-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+
+      .faculty-card {
+        text-align: center;
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        transition: var(--transition);
+      }
+
+      .faculty-card:hover {
+        box-shadow: var(--shadow-md);
+      }
+
+      .faculty-avatar {
+        width: 100px;
+        height: 100px;
+        background: var(--accent);
+        border-radius: 50%;
+        margin: 0 auto 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: white;
+      }
+
+      .faculty-name {
+        font-weight: 700;
+        margin-bottom: 0.25rem;
+      }
+
+      .faculty-role {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .faculty-qual {
+        color: var(--text-light);
+        font-size: 0.85rem;
+      }
+
+      .results-table {
+        width: 100%;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+      }
+
+      .results-table th,
+      .results-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .results-table th {
+        background: var(--primary);
+        color: white;
+        font-weight: 700;
+      }
+
+      .results-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* ═══════════════════════════════════════════════════════════
+   📝 ADMISSIONS PAGE
+   ═══════════════════════════════════════════════════════════ */
+      .process-steps {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .process-step {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 12px;
+        margin-bottom: 1rem;
+        border-left: 4px solid var(--primary);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .process-step h3 {
+        color: var(--primary);
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .fee-table {
+        width: 100%;
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: var(--shadow-md);
+      }
+
+      .fee-table th,
+      .fee-table td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .fee-table th {
+        background: var(--primary);
+        color: white;
+        font-weight: 700;
+      }
+
+      .form-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 2.5rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow-md);
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--text);
+      }
+
+      .form-input,
+      .form-select,
+      .form-textarea {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 2px solid var(--border);
+        border-radius: 8px;
+        font-family: "Albert Sans", sans-serif;
+        font-size: 1rem;
+        transition: var(--transition);
+      }
+
+      .form-input:focus,
+      .form-select:focus,
+      .form-textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(45, 90, 62, 0.1);
+      }
+
+      .form-textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .form-success {
+        display: none;
+        background: #d4edda;
+        color: #155724;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .form-success.show {
+        display: block;
+      }
+
+      /* ═══════════════════════════════════════════════════════════
+   📥 DOWNLOADS PAGE
+   ═══════════════════════════════════════════════════════════ */
+      .downloads-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .download-card {
+        background: white;
+        padding: 2rem;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        transition: var(--transition);
+      }
+
+      .download-card:hover {
+        box-shadow: var(--shadow-md);
+        border-color: var(--primary);
+      }
+
+      .download-icon {
+        font-size: 3rem;
+      }
+
+      .download-card h3 {
+        font-size: 1.3rem;
+        color: var(--primary);
+      }
+
+      .download-card p {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        flex-grow: 1;
+      }
+
+      .download-card .btn {
+        align-self: flex-start;
+      }
+
+      /* ═══════════════════════════════════════════════════════════
+   🖼️ GALLERY PAGE
+   ═══════════════════════════════════════════════════════════ */
+      .gallery-filters {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center;
+        margin-bottom: 2rem;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 0.6rem 1.5rem;
+        border: 2px solid var(--border);
+        background: white;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .gallery-item {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        background: var(--border);
+        aspect-ratio: 4/3;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.02);
+        box-shadow: var(--shadow-lg);
+      }
+
+      .gallery-placeholder {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--primary-light) 100%
+        );
+        color: white;
+        font-size: 4rem;
+      }
+
+      .gallery-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        color: white;
+        padding: 1.5rem 1rem 1rem;
+        transform: translateY(100%);
+        transition: var(--transition);
+      }
+
+      .gallery-item:hover .gallery-caption {
+        transform: translateY(0);
+      }
+
+      .gallery-caption h4 {
+        color: white;
+        font-size: 1.1rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .gallery-caption p {
+        font-size: 0.85rem;
+        opacity: 0.9;
+      }
+
+      /* ═══════════════════════════════════════════════════════════
+   📞 FOOTER
+   ═══════════════════════════════════════════════════════════ */
+      .footer {
+        background: linear-gradient(135deg, #1a1916 0%, #2d2420 100%);
+        color: rgba(255, 255, 255, 0.9);
+        padding: 4rem 0 0;
+        margin-top: 5rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-section h3 {
+        color: white;
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+      }
+
+      .footer-about p {
+        line-height: 1.8;
+        margin-bottom: 1rem;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: var(--transition);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .footer-links a:hover {
+        color: var(--accent);
+        transform: translateX(5px);
+      }
+
+      .footer-links a::before {
+        content: "→";
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .contact-item {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 1rem;
+        align-items: flex-start;
+      }
+
+      .contact-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--primary);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 1.2rem;
+      }
+
+      .contact-details h4 {
+        color: white;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+      }
+
+      .contact-details p,
+      .contact-details a {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.95rem;
+        text-decoration: none;
+      }
+
+      .contact-details a:hover {
+        color: var(--accent);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+      }
+
+      .social-link {
+        width: 45px;
+        height: 45px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        font-size: 1.3rem;
+        transition: var(--transition);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .social-link:hover {
+        background: var(--primary);
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(45, 90, 62, 0.4);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      .footer-bottom p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .footer-bottom a {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .footer-bottom a:hover {
+        text-decoration: underline;
+      }
+
+      .school-name {
+        line-height: 1.2;
+      }
+
+      .school-tagline {
+        margin-top: 2px;
+      }
+
+      /* ═══════════════════════════════════════════════════════════
+   📱 RESPONSIVE DESIGN
+   ═══════════════════════════════════════════════════════════ */
+      @media (max-width: 768px) {
+        .section {
+          padding: 3rem 0;
+        }
+        .hero {
+          padding: 3rem 0;
+        }
+        .form-container {
+          padding: 2rem 1.5rem;
+        }
+        .message-card {
+          padding: 2rem 1.5rem;
+        }
+        .footer {
+          margin-top: 3rem;
+        }
+        .footer-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════════════════════════
+     🗄️ SCHOOL CONFIGURATION DATA
+     Edit all school information here
+     ═══════════════════════════════════════════════════════════ -->
+    <script>
+      const SCHOOL_DATA = {
+        // ─── BASIC INFO ───
+        basic: {
+          name: "ST. ANTONY'S SCHOOL",
+          tagline: "Nurturing Tomorrow's Leaders Since 1996",
+          established: "1996",
+          phone: "0671-2441606",
+          email: "stantonysor078@yahoo.in",
+          address: "Bidyadharpur Naya Bazar, Cuttack, Odisha - 753004",
+          whatsappMessage: "Hi! I'm interested in admissions.",
+          logoUrl:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwQflbbDy-4W4fQ8iry14W5agEax9c1tRLBw&s",
+          socialMedia: {
+            facebook: "https://facebook.com/excellenceacademy",
+            instagram: "https://instagram.com/excellenceacademy",
+            twitter: "https://twitter.com/excellenceacad",
+            youtube: "https://youtube.com/@excellenceacademy",
+            linkedin: "https://linkedin.com/company/excellence-academy",
+          },
+        },
+
+        // ─── HOME PAGE ───
+        home: {
+          hero: {
+            badge: "Admissions Open 2026-27",
+            title:
+              "Building <span class='highlight'>Confident Leaders</span> of Tomorrow",
+            description:
+              "Where every child discovers their potential through world-class education, innovative teaching, and holistic development in a nurturing environment.",
+          },
+          stats: [
+            { number: "24+", label: "Years of Excellence" },
+            { number: "2,500+", label: "Alumni Network" },
+            { number: "98%", label: "Board Results" },
+            { number: "60+", label: "Expert Faculty" },
+          ],
+          features: [
+            {
+              icon: "🎓",
+              title: "CBSE Curriculum",
+              description:
+                "Comprehensive CBSE syllabus with emphasis on conceptual learning and practical application.",
+            },
+            {
+              icon: "🏆",
+              title: "Holistic Development",
+              description:
+                "Sports, arts, music, dance, and life skills programs for well-rounded personality development.",
+            },
+            {
+              icon: "👨‍🏫",
+              title: "Experienced Faculty",
+              description:
+                "Qualified, passionate teachers dedicated to bringing out the best in every student.",
+            },
+            {
+              icon: "🔬",
+              title: "Modern Infrastructure",
+              description:
+                "State-of-the-art labs, library, smart classrooms, and sports facilities.",
+            },
+            {
+              icon: "🌍",
+              title: "Global Exposure",
+              description:
+                "International collaborations, exchange programs, and cultural diversity.",
+            },
+            {
+              icon: "🛡️",
+              title: "Safe Environment",
+              description:
+                "24/7 CCTV, trained security, counselors, and strict safety protocols.",
+            },
+          ],
+        },
+
+        // ─── ABOUT PAGE ───
+        about: {
+          principal: {
+            name: "Sr. Lourdu Mary Nancy",
+            designation: "Principal",
+            photo: "AM", // Initials for placeholder
+            message: [
+              "Dear Parents and Students,",
+              "Welcome to Excellence Academy, where we believe that every child is unique and possesses unlimited potential. Our mission is to provide an environment where students not only excel academically but also develop into compassionate, responsible, and confident individuals.",
+              "We combine traditional values with modern pedagogical techniques to ensure that our students are prepared for the challenges of the 21st century. Our dedicated faculty works tirelessly to nurture curiosity, creativity, and critical thinking in every child.",
+              "I invite you to join our family and embark on this wonderful journey of learning and growth together.",
+            ],
+            signature: "— Sr. Lourdu Mary Nancy, Principal",
+          },
+          vision: {
+            title: "Our Vision",
+            icon: "🎯",
+            points: [
+              "To be a center of educational excellence that nurtures future leaders",
+              "Create lifelong learners with strong moral and ethical values",
+              "Foster innovation, creativity, and critical thinking",
+              "Build a inclusive community that celebrates diversity",
+            ],
+          },
+          mission: {
+            title: "Our Mission",
+            icon: "🚀",
+            points: [
+              "Provide quality education that develops intellectual, emotional, and social skills",
+              "Create a safe, nurturing environment for holistic child development",
+              "Integrate technology and modern teaching methodologies",
+              "Encourage community engagement and social responsibility",
+              "Prepare students for global citizenship and leadership roles",
+            ],
+          },
+          history: [
+            {
+              year: "2000",
+              event:
+                "School founded with 50 students and 5 teachers in a modest building",
+            },
+            {
+              year: "2005",
+              event:
+                "Expanded to include middle school; student strength reached 300",
+            },
+            {
+              year: "2010",
+              event: "New campus inaugurated with state-of-the-art facilities",
+            },
+            {
+              year: "2015",
+              event:
+                "Received CBSE affiliation and 'School of Excellence' award",
+            },
+            {
+              year: "2020",
+              event: "Launched digital learning platform during pandemic",
+            },
+            {
+              year: "2024",
+              event:
+                "Celebrating 24 years with 2,500+ alumni and 98% board results",
+            },
+          ],
+        },
+
+        // ─── ACADEMICS PAGE ───
+        academics: {
+          curriculum: [
+            {
+              level: "Pre-Primary",
+              grades: "Nursery - UKG",
+              description:
+                "Play-based learning with focus on motor skills and social development",
+            },
+            {
+              level: "Primary",
+              grades: "Class 1 - 5",
+              description:
+                "Foundation building with emphasis on core subjects and creative arts",
+            },
+            {
+              level: "Middle School",
+              grades: "Class 6 - 8",
+              description:
+                "Subject specialization with lab work and project-based learning",
+            },
+            {
+              level: "Secondary",
+              grades: "Class 9 - 10",
+              description:
+                "CBSE board preparation with career counseling and skill development",
+            },
+          ],
+          faculty: [
+            {
+              name: "Mr. Rajesh Kumar",
+              role: "Math HOD",
+              qualification: "M.Sc, B.Ed (15 years exp.)",
+              initials: "RK",
+            },
+            {
+              name: "Mrs. Priya Sharma",
+              role: "Science HOD",
+              qualification: "M.Sc Chemistry, Ph.D",
+              initials: "PS",
+            },
+            {
+              name: "Ms. Sneha Patel",
+              role: "English HOD",
+              qualification: "M.A English, B.Ed",
+              initials: "SP",
+            },
+            {
+              name: "Mr. Vikram Singh",
+              role: "Social Science",
+              qualification: "M.A History (10 years)",
+              initials: "VS",
+            },
+            {
+              name: "Mrs. Meera Reddy",
+              role: "Hindi Teacher",
+              qualification: "M.A Hindi, B.Ed",
+              initials: "MR",
+            },
+            {
+              name: "Mr. Amit Verma",
+              role: "Sports Coach",
+              qualification: "B.P.Ed, National Player",
+              initials: "AV",
+            },
+          ],
+          results: [
+            {
+              year: "2023-24",
+              totalStudents: 120,
+              passed: 118,
+              distinction: 95,
+              percentage: "98.3%",
+            },
+            {
+              year: "2022-23",
+              totalStudents: 115,
+              passed: 114,
+              distinction: 92,
+              percentage: "99.1%",
+            },
+            {
+              year: "2021-22",
+              totalStudents: 110,
+              passed: 108,
+              distinction: 88,
+              percentage: "98.2%",
+            },
+            {
+              year: "2020-21",
+              totalStudents: 105,
+              passed: 104,
+              distinction: 85,
+              percentage: "99.0%",
+            },
+          ],
+        },
+
+        // ─── ADMISSIONS PAGE ───
+        admissions: {
+          process: [
+            {
+              step: "1",
+              title: "Fill Enquiry Form",
+              description:
+                "Submit the online enquiry form or visit the school office",
+            },
+            {
+              step: "2",
+              title: "School Visit",
+              description:
+                "Attend a campus tour and meet our faculty and counselors",
+            },
+            {
+              step: "3",
+              title: "Document Submission",
+              description:
+                "Submit birth certificate, transfer certificate, and academic records",
+            },
+            {
+              step: "4",
+              title: "Interaction Session",
+              description:
+                "Informal interaction with the child to understand their interests",
+            },
+            {
+              step: "5",
+              title: "Admission Confirmation",
+              description: "Pay admission fee and receive confirmation letter",
+            },
+          ],
+          feeStructure: [
+            {
+              class: "Nursery - UKG",
+              admissionFee: "₹15,000",
+              annualFee: "₹45,000",
+              total: "₹60,000",
+            },
+            {
+              class: "Class 1 - 5",
+              admissionFee: "₹18,000",
+              annualFee: "₹55,000",
+              total: "₹73,000",
+            },
+            {
+              class: "Class 6 - 8",
+              admissionFee: "₹20,000",
+              annualFee: "₹65,000",
+              total: "₹85,000",
+            },
+            {
+              class: "Class 9 - 10",
+              admissionFee: "₹22,000",
+              annualFee: "₹75,000",
+              total: "₹97,000",
+            },
+          ],
+        },
+
+        // ─── DOWNLOADS PAGE ───
+        downloads: [
+          {
+            title: "School Prospectus 2026-27",
+            description:
+              "Comprehensive guide about our school, facilities, and programs",
+            icon: "📘",
+            file: "#",
+          },
+          {
+            title: "Admission Form",
+            description: "Download and fill the admission application form",
+            icon: "📝",
+            file: "#",
+          },
+          {
+            title: "Fee Structure",
+            description: "Detailed fee breakup for all classes",
+            icon: "💰",
+            file: "#",
+          },
+          {
+            title: "Academic Calendar",
+            description: "Annual calendar with exam dates and holidays",
+            icon: "📅",
+            file: "#",
+          },
+          {
+            title: "Syllabus - Class 1-5",
+            description: "Primary section syllabus and learning objectives",
+            icon: "📚",
+            file: "#",
+          },
+          {
+            title: "Syllabus - Class 6-10",
+            description: "Middle and secondary section CBSE syllabus",
+            icon: "📖",
+            file: "#",
+          },
+        ],
+
+        // ─── GALLERY PAGE ───
+        gallery: [
+          {
+            title: "Annual Day 2024",
+            category: "Events",
+            date: "March 2024",
+            icon: "🎭",
+          },
+          {
+            title: "Science Exhibition",
+            category: "Academic",
+            date: "February 2024",
+            icon: "🔬",
+          },
+          {
+            title: "Sports Day",
+            category: "Sports",
+            date: "January 2024",
+            icon: "🏃",
+          },
+          {
+            title: "Republic Day Celebration",
+            category: "Events",
+            date: "January 2024",
+            icon: "🇮🇳",
+          },
+          {
+            title: "Art Competition",
+            category: "Co-curricular",
+            date: "December 2023",
+            icon: "🎨",
+          },
+          {
+            title: "Diwali Celebration",
+            category: "Events",
+            date: "November 2023",
+            icon: "🪔",
+          },
+          {
+            title: "Inter-School Football",
+            category: "Sports",
+            date: "October 2023",
+            icon: "⚽",
+          },
+          {
+            title: "Math Olympiad",
+            category: "Academic",
+            date: "September 2023",
+            icon: "🧮",
+          },
+        ],
+      };
+    </script>
+
+    <!-- ═══════════════════════════════════════════════════════════
+     🏗️ HTML STRUCTURE
+     ═══════════════════════════════════════════════════════════ -->
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float">
+      <button class="whatsapp-btn" id="whatsappBtn">
+        <svg viewBox="0 0 24 24" fill="white">
+          <path
+            d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <nav class="nav">
+          <!-- <div class="nav-brand">
+            <div class="school-name" id="schoolName">Excellence Academy</div>
+            <div class="school-tagline" id="schoolTagline">
+              Nurturing Tomorrow's Leaders
+            </div>
+          </div> -->
+
+          <div class="nav-brand">
+            <div style="display: flex; align-items: center; gap: 0.75rem">
+              <!-- Logo -->
+              <img
+                id="schoolLogo"
+                alt="School Logo"
+                style="width: 38px; height: 38px; object-fit: contain"
+              />
+
+              <!-- Text block -->
+              <div
+                style="
+                  display: flex;
+                  flex-direction: column;
+                  align-items: flex-start;
+                "
+              >
+                <div class="school-name" id="schoolName">
+                  ST. ANTONY'S SCHOOL
+                </div>
+                <div class="school-tagline" id="schoolTagline">
+                  Nurturing Tomorrow's Leaders Since 1996
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <ul class="nav-menu">
+            <li><a href="#" class="active" data-page="home">Home</a></li>
+            <li><a href="#" data-page="about">About</a></li>
+            <li><a href="#" data-page="academics">Academics</a></li>
+            <li><a href="#" data-page="admissions">Admissions</a></li>
+            <li><a href="#" data-page="downloads">Downloads</a></li>
+            <li><a href="#" data-page="gallery">Gallery</a></li>
+          </ul>
+
+          <div class="nav-cta">
+            <a href="#" class="btn btn-primary" id="navEnquireBtn"
+              >Enquire Now</a
+            >
+          </div>
+
+          <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </nav>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <ul class="mobile-menu-list">
+          <li><a href="#" class="active" data-page="home">Home</a></li>
+          <li><a href="#" data-page="about">About</a></li>
+          <li><a href="#" data-page="academics">Academics</a></li>
+          <li><a href="#" data-page="admissions">Admissions</a></li>
+          <li><a href="#" data-page="downloads">Downloads</a></li>
+          <li><a href="#" data-page="gallery">Gallery</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="mainContent">
+      <!-- Pages will be dynamically inserted here -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <!-- About Section -->
+          <div class="footer-section footer-about">
+            <h3 id="footerSchoolName">Excellence Academy</h3>
+            <p id="footerAboutText">
+              A leading educational institution committed to nurturing young
+              minds and building future leaders through quality education and
+              holistic development.
+            </p>
+            <p style="margin-top: 1rem">
+              <strong>Established:</strong> <span id="footerEstYear">2000</span
+              ><br />
+              <strong>Affiliation:</strong> CBSE
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+              <li><a href="#" data-page="home">Home</a></li>
+              <li><a href="#" data-page="about">About Us</a></li>
+              <li><a href="#" data-page="academics">Academics</a></li>
+              <li><a href="#" data-page="admissions">Admissions</a></li>
+              <li><a href="#" data-page="downloads">Downloads</a></li>
+              <li><a href="#" data-page="gallery">Gallery</a></li>
+            </ul>
+          </div>
+
+          <!-- Important Links -->
+          <div class="footer-section">
+            <h3>Important</h3>
+            <ul class="footer-links">
+              <li><a href="#" data-page="admissions">Admission Process</a></li>
+              <li><a href="#" data-page="admissions">Fee Structure</a></li>
+              <li><a href="#" data-page="downloads">Prospectus</a></li>
+              <li><a href="#" data-page="academics">Curriculum</a></li>
+              <li><a href="#" data-page="academics">Faculty</a></li>
+              <li><a href="#" data-page="academics">Results</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact Info -->
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-details">
+                <h4>Address</h4>
+                <p id="footerAddress">
+                  123 Education Street<br />Knowledge City, State - 500001
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div class="contact-details">
+                <h4>Phone</h4>
+                <p>
+                  <a href="tel:+919876543210" id="footerPhone"
+                    >+91 98765 43210</a
+                  >
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div class="contact-details">
+                <h4>Email</h4>
+                <p>
+                  <a href="mailto:info@excellenceacademy.edu" id="footerEmail"
+                    >info@excellenceacademy.edu</a
+                  >
+                </p>
+              </div>
+            </div>
+
+            <!-- Social Media Links -->
+            <div class="social-links" id="socialLinks">
+              <!-- Will be populated by JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+          <p>
+            © <span id="currentYear">2024</span>
+            <span id="footerCopyright">Excellence Academy</span>. All Rights
+            Reserved.<br />
+            Website designed and developed with ❤️ by
+            <a href="#" target="_blank">EduFlow Systems</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // ═══════════════════════════════════════════════════════════
+      // 🚀 PAGE RENDERING ENGINE
+      // ═══════════════════════════════════════════════════════════
+
+      const pages = {
+        home: () => `
+    <div class="page active" id="page-home">
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <span class="hero-badge-dot"></span>
+              ${SCHOOL_DATA.home.hero.badge}
+            </div>
+            <h1>${SCHOOL_DATA.home.hero.title}</h1>
+            <p class="hero-description">${SCHOOL_DATA.home.hero.description}</p>
+            <div class="cta-group">
+              <a href="#" class="btn btn-primary" data-page="admissions">Apply Now</a>
+              <button class="btn btn-secondary" id="heroWhatsAppBtn">Schedule Visit</button>
+            </div>
+            <div class="stats-grid">
+              ${SCHOOL_DATA.home.stats
+                .map(
+                  (stat) => `
+                <div class="stat-item">
+                  <div class="stat-number">${stat.number}</div>
+                  <div class="stat-label">${stat.label}</div>
+                </div>
+              `,
+                )
+                .join("")}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Why Parents Choose Us</h2>
+            <p class="section-subtitle">Excellence in education, holistic development, and nurturing environment</p>
+          </div>
+          <div class="features-grid">
+            ${SCHOOL_DATA.home.features
+              .map(
+                (feature) => `
+              <div class="feature-card">
+                <div class="feature-icon">${feature.icon}</div>
+                <h3 class="feature-title">${feature.title}</h3>
+                <p class="feature-description">${feature.description}</p>
+              </div>
+            `,
+              )
+              .join("")}
+          </div>
+        </div>
+      </section>
+    </div>
+  `,
+
+        about: () => `
+    <div class="page" id="page-about">
+      <!-- Principal's Message -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Principal's Message</h2>
+          </div>
+          <div class="message-card">
+            <div class="message-photo">${SCHOOL_DATA.about.principal.photo}</div>
+            <div class="message-content">
+              <h3>${SCHOOL_DATA.about.principal.name}</h3>
+              <h4>${SCHOOL_DATA.about.principal.designation}</h4>
+              ${SCHOOL_DATA.about.principal.message.map((para) => `<p>${para}</p>`).join("")}
+              <p class="signature">${SCHOOL_DATA.about.principal.signature}</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Vision & Mission -->
+      <section class="section" style="background: white;">
+        <div class="container">
+          <div class="vm-grid">
+            <div class="vm-card">
+              <h3>${SCHOOL_DATA.about.vision.icon} ${SCHOOL_DATA.about.vision.title}</h3>
+              <ul>
+                ${SCHOOL_DATA.about.vision.points.map((point) => `<li>${point}</li>`).join("")}
+              </ul>
+            </div>
+            <div class="vm-card">
+              <h3>${SCHOOL_DATA.about.mission.icon} ${SCHOOL_DATA.about.mission.title}</h3>
+              <ul>
+                ${SCHOOL_DATA.about.mission.points.map((point) => `<li>${point}</li>`).join("")}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- History -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Our Journey</h2>
+            <p class="section-subtitle">Two decades of educational excellence</p>
+          </div>
+          <div class="timeline">
+            ${SCHOOL_DATA.about.history
+              .map(
+                (item, idx) => `
+              <div class="timeline-item">
+                <div class="timeline-marker">${idx + 1}</div>
+                <div class="timeline-content">
+                  <div class="timeline-year">${item.year}</div>
+                  <p>${item.event}</p>
+                </div>
+              </div>
+            `,
+              )
+              .join("")}
+          </div>
+        </div>
+      </section>
+    </div>
+  `,
+
+        academics: () => `
+    <div class="page" id="page-academics">
+      <!-- Curriculum -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Our Curriculum</h2>
+            <p class="section-subtitle">CBSE-affiliated comprehensive education programs</p>
+          </div>
+          <div class="curriculum-grid">
+            ${SCHOOL_DATA.academics.curriculum
+              .map(
+                (item) => `
+              <div class="curriculum-card">
+                <h3>${item.level}</h3>
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">${item.grades}</p>
+                <p style="font-size: 0.9rem;">${item.description}</p>
+              </div>
+            `,
+              )
+              .join("")}
+          </div>
+        </div>
+      </section>
+
+      <!-- Faculty -->
+      <section class="section" style="background: white;">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Our Faculty</h2>
+            <p class="section-subtitle">Experienced educators passionate about teaching</p>
+          </div>
+          <div class="faculty-grid">
+            ${SCHOOL_DATA.academics.faculty
+              .map(
+                (member) => `
+              <div class="faculty-card">
+                <div class="faculty-avatar">${member.initials}</div>
+                <div class="faculty-name">${member.name}</div>
+                <div class="faculty-role">${member.role}</div>
+                <div class="faculty-qual">${member.qualification}</div>
+              </div>
+            `,
+              )
+              .join("")}
+          </div>
+        </div>
+      </section>
+
+      <!-- Results -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Board Results</h2>
+            <p class="section-subtitle">Consistent excellence in CBSE examinations</p>
+          </div>
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Students</th>
+                <th>Passed</th>
+                <th>Distinction</th>
+                <th>Pass %</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${SCHOOL_DATA.academics.results
+                .map(
+                  (result) => `
+                <tr>
+                  <td><strong>${result.year}</strong></td>
+                  <td>${result.totalStudents}</td>
+                  <td>${result.passed}</td>
+                  <td>${result.distinction}</td>
+                  <td><strong>${result.percentage}</strong></td>
+                </tr>
+              `,
+                )
+                .join("")}
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  `,
+
+        admissions: () => `
+    <div class="page" id="page-admissions">
+      <!-- Admission Process -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Admission Process</h2>
+            <p class="section-subtitle">Simple and transparent admission procedure</p>
+          </div>
+          <div class="process-steps">
+            ${SCHOOL_DATA.admissions.process
+              .map(
+                (step) => `
+              <div class="process-step">
+                <h3><span style="background: var(--primary); color: white; width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.9rem;">${step.step}</span> ${step.title}</h3>
+                <p style="color: var(--text-muted);">${step.description}</p>
+              </div>
+            `,
+              )
+              .join("")}
+          </div>
+        </div>
+      </section>
+
+      <!-- Fee Structure -->
+      <section class="section" style="background: white;">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Fee Structure</h2>
+            <p class="section-subtitle">Transparent and affordable fee structure</p>
+          </div>
+          <table class="fee-table">
+            <thead>
+              <tr>
+                <th>Class</th>
+                <th>Admission Fee</th>
+                <th>Annual Fee</th>
+                <th>Total (Year 1)</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${SCHOOL_DATA.admissions.feeStructure
+                .map(
+                  (fee) => `
+                <tr>
+                  <td><strong>${fee.class}</strong></td>
+                  <td>${fee.admissionFee}</td>
+                  <td>${fee.annualFee}</td>
+                  <td><strong>${fee.total}</strong></td>
+                </tr>
+              `,
+                )
+                .join("")}
+            </tbody>
+          </table>
+          <p style="text-align: center; color: var(--text-muted); margin-top: 1.5rem; font-size: 0.9rem;">
+            * Fee structure subject to revision. Transport and uniform charges are additional.
+          </p>
+        </div>
+      </section>
+
+      <!-- Enquiry Form -->
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Enquiry Form</h2>
+            <p class="section-subtitle">Submit your details and we'll get back to you within 24 hours</p>
+          </div>
+          <div class="form-container">
+            <form id="enquiryForm">
+              <div class="form-group">
+                <label class="form-label">Parent's Name *</label>
+                <input type="text" class="form-input" name="parentName" required placeholder="Enter full name">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email *</label>
+                <input type="email" class="form-input" name="email" required placeholder="your@email.com">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number *</label>
+                <input type="tel" class="form-input" name="phone" required placeholder="10-digit mobile number">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Child's Name *</label>
+                <input type="text" class="form-input" name="childName" required placeholder="Enter child's name">
+              </div>
+              <div class="form-group">
+                <label class="form-label">Class Applying For *</label>
+                <select class="form-select" name="class" required>
+                  <option value="">Select class</option>
+                  <option>Nursery</option>
+                  <option>LKG</option>
+                  <option>UKG</option>
+                  <option>Class 1</option>
+                  <option>Class 2</option>
+                  <option>Class 3</option>
+                  <option>Class 4</option>
+                  <option>Class 5</option>
+                  <option>Class 6</option>
+                  <option>Class 7</option>
+                  <option>Class 8</option>
+                  <option>Class 9</option>
+                  <option>Class 10</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Message (Optional)</label>
+                <textarea class="form-textarea" name="message" placeholder="Any specific questions or requirements..."></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Enquiry</button>
+              <div class="form-success" id="formSuccess">
+                ✅ Thank you! We'll contact you within 24 hours.
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </div>
+  `,
+
+        downloads: () => `
+    <div class="page" id="page-downloads">
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Downloads</h2>
+            <p class="section-subtitle">Important documents and resources</p>
+          </div>
+          <div class="downloads-grid">
+            ${SCHOOL_DATA.downloads
+              .map(
+                (item) => `
+              <div class="download-card">
+                <div class="download-icon">${item.icon}</div>
+                <h3>${item.title}</h3>
+                <p>${item.description}</p>
+                <a href="${item.file}" class="btn btn-primary" download>Download PDF</a>
+              </div>
+            `,
+              )
+              .join("")}
+          </div>
+        </div>
+      </section>
+    </div>
+  `,
+
+        gallery: () => `
+    <div class="page" id="page-gallery">
+      <section class="section">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Photo Gallery</h2>
+            <p class="section-subtitle">Moments from our vibrant campus life</p>
+          </div>
+          <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="Events">Events</button>
+            <button class="filter-btn" data-filter="Academic">Academic</button>
+            <button class="filter-btn" data-filter="Sports">Sports</button>
+            <button class="filter-btn" data-filter="Co-curricular">Co-curricular</button>
+          </div>
+          <div class="gallery-grid" id="galleryGrid">
+            ${SCHOOL_DATA.gallery
+              .map(
+                (item) => `
+              <div class="gallery-item" data-category="${item.category}">
+                <div class="gallery-placeholder">${item.icon}</div>
+                <div class="gallery-caption">
+                  <h4>${item.title}</h4>
+                  <p>${item.date}</p>
+                </div>
+              </div>
+            `,
+              )
+              .join("")}
+          </div>
+        </div>
+      </section>
+    </div>
+  `,
+      };
+
+      // ═══════════════════════════════════════════════════════════
+      // 🎬 INITIALIZE APPLICATION
+      // ═══════════════════════════════════════════════════════════
+
+      function init() {
+        // Update basic info
+        document.getElementById("pageTitle").textContent =
+          `${SCHOOL_DATA.basic.name} - ${SCHOOL_DATA.basic.tagline}`;
+        document.getElementById("schoolName").textContent =
+          SCHOOL_DATA.basic.name;
+        document.getElementById("schoolTagline").textContent =
+          SCHOOL_DATA.basic.tagline;
+        document.getElementById("schoolLogo").src = SCHOOL_DATA.basic.logoUrl;
+        // Render all pages
+        const mainContent = document.getElementById("mainContent");
+        mainContent.innerHTML = Object.values(pages)
+          .map((page) => page())
+          .join("");
+
+        // Setup components
+        setupNavigation();
+        setupWhatsApp();
+        setupForms();
+        setupGalleryFilters();
+        setupFooter();
+
+        // Show home page
+        showPage("home");
+      }
+
+      function setupFooter() {
+        // Update footer content
+        document.getElementById("footerSchoolName").textContent =
+          SCHOOL_DATA.basic.name;
+        document.getElementById("footerAboutText").textContent =
+          `A leading educational institution committed to nurturing young minds and building future leaders through quality education and holistic development.`;
+        document.getElementById("footerEstYear").textContent =
+          SCHOOL_DATA.basic.established;
+        document.getElementById("footerAddress").innerHTML =
+          SCHOOL_DATA.basic.address.replace(", ", "<br>");
+        document.getElementById("footerPhone").textContent =
+          ` ${SCHOOL_DATA.basic.phone}`;
+        document.getElementById("footerPhone").href =
+          `tel:+91${SCHOOL_DATA.basic.phone}`;
+        document.getElementById("footerEmail").textContent =
+          SCHOOL_DATA.basic.email;
+        document.getElementById("footerEmail").href =
+          `mailto:${SCHOOL_DATA.basic.email}`;
+        document.getElementById("footerCopyright").textContent =
+          SCHOOL_DATA.basic.name;
+        document.getElementById("currentYear").textContent =
+          new Date().getFullYear();
+
+        // Social media icons
+        const socialIcons = {
+          facebook: "📘",
+          instagram: "📷",
+          twitter: "🐦",
+          youtube: "📺",
+          linkedin: "💼",
+        };
+
+        const socialLinksHTML = Object.entries(SCHOOL_DATA.basic.socialMedia)
+          .map(
+            ([platform, url]) => `
+      <a href="${url}" class="social-link" target="_blank" rel="noopener" title="${platform.charAt(0).toUpperCase() + platform.slice(1)}">
+        ${socialIcons[platform]}
+      </a>
+    `,
+          )
+          .join("");
+
+        document.getElementById("socialLinks").innerHTML = socialLinksHTML;
+
+        // Setup footer navigation
+        document.querySelectorAll(".footer-links a").forEach((link) => {
+          link.addEventListener("click", (e) => {
+            e.preventDefault();
+            const page = e.target.dataset.page;
+            if (page) {
+              showPage(page);
+
+              // Update active states
+              document
+                .querySelectorAll(".nav-menu a, .mobile-menu-list a")
+                .forEach((l) => l.classList.remove("active"));
+              document
+                .querySelectorAll(`[data-page="${page}"]`)
+                .forEach((l) => l.classList.add("active"));
+
+              // Scroll to top
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          });
+        });
+      }
+
+      function setupNavigation() {
+        // Desktop navigation
+        document
+          .querySelectorAll(".nav-menu a, .mobile-menu-list a")
+          .forEach((link) => {
+            link.addEventListener("click", (e) => {
+              e.preventDefault();
+              const page = e.target.dataset.page;
+              showPage(page);
+
+              // Update active states
+              document
+                .querySelectorAll(".nav-menu a, .mobile-menu-list a")
+                .forEach((l) => l.classList.remove("active"));
+              document
+                .querySelectorAll(`[data-page="${page}"]`)
+                .forEach((l) => l.classList.add("active"));
+
+              // Close mobile menu
+              document.getElementById("mobileMenu").classList.remove("active");
+
+              // Scroll to top
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+          });
+
+        // Hamburger menu
+        document.getElementById("hamburger").addEventListener("click", () => {
+          document.getElementById("mobileMenu").classList.toggle("active");
+        });
+
+        // Nav enquire button
+        document
+          .getElementById("navEnquireBtn")
+          .addEventListener("click", (e) => {
+            e.preventDefault();
+            showPage("admissions");
+            setTimeout(() => {
+              document
+                .getElementById("enquiryForm")
+                .scrollIntoView({ behavior: "smooth", block: "center" });
+            }, 300);
+          });
+      }
+
+      function showPage(pageName) {
+        document
+          .querySelectorAll(".page")
+          .forEach((page) => page.classList.remove("active"));
+        const targetPage = document.getElementById(`page-${pageName}`);
+        if (targetPage) {
+          targetPage.classList.add("active");
+        }
+      }
+
+      function setupWhatsApp() {
+        const openWhatsApp = (message = null) => {
+          const msg = message || SCHOOL_DATA.basic.whatsappMessage;
+          const url = `https://wa.me/91${SCHOOL_DATA.basic.phone}?text=${encodeURIComponent(msg)}`;
+          window.open(url, "_blank");
+        };
+
+        document
+          .getElementById("whatsappBtn")
+          .addEventListener("click", () => openWhatsApp());
+
+        // Hero WhatsApp button (rendered after page load)
+        document.addEventListener("click", (e) => {
+          if (e.target.id === "heroWhatsAppBtn") {
+            openWhatsApp("Hi! I'd like to schedule a school visit.");
+          }
+        });
+      }
+
+      function setupForms() {
+        document.addEventListener("submit", (e) => {
+          if (e.target.id === "enquiryForm") {
+            e.preventDefault();
+
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+
+            // Show success message
+            document.getElementById("formSuccess").classList.add("show");
+
+            // Send to WhatsApp
+            const message = `🎓 New Admission Enquiry\n\nParent: ${data.parentName}\nEmail: ${data.email}\nPhone: ${data.phone}\nChild: ${data.childName}\nClass: ${data.class}\nMessage: ${data.message || "N/A"}`;
+
+            setTimeout(() => {
+              const url = `https://wa.me/91${SCHOOL_DATA.basic.phone}?text=${encodeURIComponent(message)}`;
+              window.open(url, "_blank");
+            }, 1000);
+
+            // Reset form
+            e.target.reset();
+
+            // Hide success after 5s
+            setTimeout(() => {
+              document.getElementById("formSuccess").classList.remove("show");
+            }, 5000);
+          }
+        });
+      }
+
+      function setupGalleryFilters() {
+        document.addEventListener("click", (e) => {
+          if (e.target.classList.contains("filter-btn")) {
+            const filter = e.target.dataset.filter;
+
+            // Update active button
+            document
+              .querySelectorAll(".filter-btn")
+              .forEach((btn) => btn.classList.remove("active"));
+            e.target.classList.add("active");
+
+            // Filter gallery items
+            const items = document.querySelectorAll(".gallery-item");
+            items.forEach((item) => {
+              if (filter === "all" || item.dataset.category === filter) {
+                item.style.display = "block";
+              } else {
+                item.style.display = "none";
+              }
+            });
+          }
+        });
+      }
+
+      // Initialize on load
+      document.addEventListener("DOMContentLoaded", init);
+    </script>
+  </body>
+</html>
